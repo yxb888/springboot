@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title></title>
+    <meta charset="UTF-8" />
+
+
+    <link th:href="@{assets/css/style.css}" rel="stylesheet" />
+    <link th:href="@{assets/css/loader-style.css}" rel="stylesheet" />
+    <link th:href="@{assets/css/bootstrap.css}" rel="stylesheet" />
+
+
+    <script th:src="@{assets/js/jquery.min.js}"></script>
+
+    <script th:src="@{assets/js/preloader.js}"></script>
+    <script th:src="@{assets/js/load.js}"></script>
+    <script th:src="@{assets/js/app.js}"></script>
+    <script th:src="@{assets/js/bootstrap.js}"></script>
+    <script th:src="@{assets/js/pnotify/jquery.pnotify.min.js}"></script>
+
+
+</head>
+<body>
+
+
+<div >这里是信息提示.</div>
+
+<div th:errors="${clientele.username}"></div>
+<!--<div th:errors="${animalForm.ocount}"></div>-->
+<!--<div th:errors="${animalForm.memo}"></div>-->
+
+
+<form action="index.html" id="formset" th:object="${clientele}" method="post" class="definewidth m20">
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table  table-hover definewidth m10" style="border:0;">
+                <tr>
+                    <td align="center" width="10%" class="">渠道：</td>
+                    <td><input type="" name="borrowingMoney" value="大宅院"/></td>
+
+                    <td align="center" width="10%" class="">渠道id：</td>
+                    <td><input type="" name="qudaoid" th:value="*{qudaoid}"/></td>
+
+                    <td align="center" width="10%" class="">状态:</td>
+                    <td>
+                        <input type="" name="madestatus" th:value="*{madestatus}"/>
+                        <input type="hidden" value="1" name="status" />
+                    </td>
+                    <td align="center" width="10%" class="">业务员:</td>
+                    <td><input type="" name="yewuyuan" th:value="*{yewuyuan}"/></td>
+                </tr>
+            </table>
+
+            <div  class="nest" id="tip">
+                <div  align="left">
+                    <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom" title="不服你就点..">客户信息</button>
+                    <button type="button" class="btn" data-toggle="tooltip" data-placement="bottom" title="你还真点啊..">订单记录</button>
+                </div>
+            </div>
+            <div class="nest" id="alertClose">
+                <div class="title-alt">
+                    <h6><font style="color: #0f0f0f"><b>
+                       | 基本信息</b></font></h6>
+                    <div class="titleClose">
+                        <a class="gone" href="#alertClose">
+                            <span class="entypo-cancel"></span>
+                        </a>
+                    </div>
+                    <div class="titleToggle">
+                        <a class="nav-toggle-alt" href="#alert">
+                            <span class="entypo-up-open"></span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="body-nest" id="alert">
+
+
+                    <!--  <h2>Table Bordered</h2> -->
+                    <p>For longer messages, increase the padding on the top and bottom of the alert wrapper by adding
+                        <code>.alert-block</code>.</p>
+
+                        <table class="table  table-hover definewidth m10" style="border:0;">
+                            <tr>
+                                <td align="center" width="10%" class="">账号：</td>
+                                <td><input type="" name="accountnumber" th:value="*{accountnumber}"/>
+
+                                </td>
+
+                                <td align="center" width="10%" class="">用户名：</td>
+                                <td><input type="" name="username" th:value="*{username}"/>
+                                </td>
+
+                                <td align="center" width="10%" class="">手机号:</td>
+                                <td><input type="" name="phonenumber" th:value="*{phonenumber}"/></td>
+                                <td align="center" width="10%" class="">身份证号:</td>
+                                <td><input type="" name="usercarid" th:value="*{usercarid}"/></td>
+                            </tr>
+                            <tr>
+                                <td align="center"  class="">性别:</td>
+                                <td><input name="usersex" th:value="*{usersex}"/></td>
+                                <td  align="center" class="">学历:</td>
+                                <td><input name="Education" th:value="*{Education}"/></td>
+                                <td width="10%" align="center" class="">婚姻状况:</td>
+                                <td><input  name="marital" th:value="*{marital}"/></td>
+
+                                <td width="10%" align="center" class="">现住地址:</td>
+                                <td><input type="" name="presentAddress" th:value="*{presentAddress}"/></td>
+                            </tr>
+                            <tr>
+                                <td align="center" class="">户口所在地:</td>
+                                <td><input type="" name="registeredAddress" th:value="*{registeredAddress}"/></td>
+
+                                <td align="center" width="10%" class="">提交时间:</td>
+                                <td><input type="" name="submitTime" th:value="*{submitTime}"/></td>
+                            </tr>
+
+                            <!--<tr>-->
+                                <!--<td class="tableleft"></td>-->
+                                <!--<td>-->
+                                    <!--<button  class="btn btn-primary" type="button">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>-->
+                                <!--</td>-->
+                            <!--</tr>-->
+                        </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="nest" id="tipClose">
+                <div class="title-alt">
+                    <h6><font style="color: #0f0f0f"><b>
+                        | 金融产品信息</b></font></h6>
+                    <div class="titleClose">
+                        <a class="gone" href="#tipClose">
+                            <span class="entypo-cancel"></span>
+                        </a>
+                    </div>
+                    <div class="titleToggle">
+                        <a class="nav-toggle-alt" href="#tip">
+                            <span class="entypo-up-open"></span>
+                        </a>
+                    </div>
+
+                </div>
+
+                    <table class="table  table-hover definewidth m10" style="border:0;">
+                        <tr>
+                            <td align="center" width="10%" class="">产品名称：</td>
+                            <td><input type="" name="productName" th:value="*{productName}"/></td>
+
+                            <td align="center" width="10%" class="">借款额度：</td>
+                            <td><input type="" name="borrowingLimit" th:value="*{borrowingLimit}"/></td>
+
+                            <td align="center" width="10%" class="">借款期限:</td>
+                            <td><input type="" name="borrowingDeadline" th:value="*{borrowingDeadline}"/></td>
+                            <td align="center" width="10%" class="">还款方式:</td>
+                            <td><input type="" name="borrowingRepayment" th:value="*{borrowingRepayment}"/></td>
+                        </tr>
+                        <tr>
+                            <td align="center"  class="">还款频率:</td>
+                            <td><input name="repaymentFrequency" th:value="*{repaymentFrequency}"/></td>
+                            <td  align="center" class="">年利率:</td>
+                            <td><input name="boorowingAnnual" th:value="*{boorowingAnnual}"/></td>
+                            <td width="10%" align="center" class="">适宜人群:</td>
+                            <td><input  name="appropriateCrowd" th:value="*{appropriateCrowd}"/></td>
+
+
+                        </tr>
+
+
+                        <!--<tr>-->
+                        <!--<td class="tableleft"></td>-->
+                        <!--<td>-->
+                        <!--<button  class="btn btn-primary" type="button">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>-->
+                        <!--</td>-->
+                        <!--</tr>-->
+                    </table>
+
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="nest" id="notifClose">
+                <div class="title-alt">
+                    <h6><font style="color: #0f0f0f"><b>
+                        | 银行卡信息</b></font></h6>
+                    <div class="titleClose">
+                        <a class="gone" href="#notifClose">
+                            <span class="entypo-cancel"></span>
+                        </a>
+                    </div>
+                    <div class="titleToggle">
+                        <a class="nav-toggle-alt" href="#notif">
+                            <span class="entypo-up-open"></span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <table class="table  table-hover definewidth m10" style="border:0;">
+                    <tr>
+                        <td align="center" width="10%" class="">卡类型：</td>
+                        <td><input type="" name="cartype" th:value="*{cartype}"/>
+                            <input type="hidden" name="userid" th:value="*{userid}"/>
+                        </td>
+
+                        <td align="center" width="10%" class="">银行卡卡号：</td>
+                        <td><input type="" name="carid" th:value="*{carid}"/></td>
+
+                        <td align="center" width="10%" class="">预留手机号:</td>
+                        <td><input type="" name="reservedPhoneNumber" th:value="*{reservedPhoneNumber}"/></td>
+
+                    </tr>
+
+
+
+                    <!--<tr>-->
+                    <!--<td class="tableleft"></td>-->
+                    <!--<td>-->
+                    <!--<button  class="btn btn-primary" type="button">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-wrap">
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="nest" id="notifClose">
+                <div class="title-alt">
+                    <h6><font style="color: #0f0f0f"><b>
+                        | 借款信息</b></font></h6>
+                    <div class="titleClose">
+                        <a class="gone" href="#notifClose">
+                            <span class="entypo-cancel"></span>
+                        </a>
+                    </div>
+                    <div class="titleToggle">
+                        <a class="nav-toggle-alt" href="#notif">
+                            <span class="entypo-up-open"></span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <table class="table  table-hover definewidth m10" style="border:0;">
+                    <tr>
+                        <td align="center" width="10%" class="">借款金融：</td>
+                        <td><input type="" name="borrowingMoney" th:value="*{borrowingMoney}"/></td>
+
+                        <td align="center" width="10%" class="">借款期限：</td>
+                        <td><input type="" name="borrowingTimeDate" th:value="*{borrowingTimeDate}"/></td>
+
+                        <td align="center" width="10%" class="">还款方式:</td>
+                        <td><input type="" name="modeOfRepayment" th:value="*{modeOfRepayment}"/></td>
+                        <td align="center" width="10%" class="">年利率:</td>
+                        <td><input type="" name="jieboorowingAnnual" th:value="*{jieboorowingAnnual}"/></td>
+                    </tr>
+
+
+
+                    <!--<tr>-->
+                    <!--<td class="tableleft"></td>-->
+                    <!--<td>-->
+                    <!--<button  class="btn btn-primary" type="button">保存</button> &nbsp;&nbsp;<button type="button" class="btn btn-success" name="backid" id="backid">返回列表</button>-->
+                    <!--</td>-->
+                    <!--</tr>-->
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    <div align="center" style="margin-top: 15px">
+        <table>
+            <tr>
+                <td class="tableleft"></td>
+                <td>
+                    <button  class="btn btn-primary" onclick="sublic()" type="button">保存</button> &nbsp;&nbsp;<button type="button" onclick="rest()" class="btn btn-primary" >返回列表</button>
+                </td>
+
+        </tr>
+        </table>
+    </div>
+</form>
+
+<script>
+    $(function () {
+        $('#backid').click(function(){
+            window.location.href="{:U('User/index')}";
+        });
+
+    });
+    function rest(){
+        window.location.href="/clientList";
+//        window.location.reload();
+    }
+    function sublic(){
+        $.ajax({
+            url:'/saveClient',
+            data:$("#formset").serialize(),
+            type:'post',
+            success:function(data){
+                alert("修改成功！");
+                window.location.href="/clientList";
+            },error:function(data){
+                alert("修改失败！");
+            }
+
+
+
+        })
+
+    }
+</script>
+
+<script type="text/javascript">
+//    $('.btn').tooltip();
+</script>
+</body>
+</html>
+
+<!--=============-->

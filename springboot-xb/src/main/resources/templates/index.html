@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>后台管理系统</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--Bootstrap-->
+    <link th:href="@{assets/css/dpl-min.css}" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link th:href="@{assets/css/bui-min.css}" rel="stylesheet" />
+    <!--[if IE 7]>
+    <link href="/Content/font-awesome/css/font-awesome-ie7.min.css" rel="stylesheet" />
+    <![endif]-->
+    <link th:href="@{assets/css/main-min.css}" rel="stylesheet" />
+
+
+
+    <script th:src="@{assets/js/jquery-1.8.1.min.js}"></script>
+    <script th:src="@{assets/js/bui-min.js}"></script>
+    <script th:src="@{assets/js/common/main-min.js}"></script>
+    <script th:src="@{assets/js/config-min.js}"></script>
+
+    <script th:src="@{Js/jquery.js}"></script>
+
+    <script th:src="@{Js/bootstrap.js}"></script>
+    <script th:src="@{Js/ckform.js}"></script>
+    <script th:src="@{Js/common.js}"></script>
+
+    <style>
+        html,body,h2{margin:0;}
+        img{border:none}
+        #pop{width:300px; height:282px;font-size:12px;position:fixed;right:0;bottom:0;}
+        #popHead{line-height:32px;font-size:12px;padding:0 0 0 10px;}
+        #popHead h2{font-size:14px;color:#666;line-height:32px;height:32px;}
+        #popHead #popClose{position:absolute;right:10px;top:1px;}
+        #popHead a#popClose:hover{color:#f00;cursor:pointer;}
+    </style>
+
+
+</head>
+<body>
+
+<div class="header" >
+
+    <div class="dl-title">
+        <img src="assets/img/top.png"/>
+    </div>
+
+    <div class="dl-log">欢迎您，<span class="dl-log-user">root</span><a href="chinapost/index.php?m=Public&amp;a=logout" title="退出系统" class="dl-log-quit">[退出]</a>
+    </div>
+</div>
+<div class="content">
+    <div class="dl-main-nav">
+        <div class="dl-inform"><div class="dl-inform-title"><s class="dl-inform-icon dl-up"></s></div></div>
+        <ul id="J_Nav"  class="nav-list ks-clear">
+            <li class="nav-item dl-selected"><div class="nav-item-inner nav-home">网利信贷后台</div></li>		<li class="nav-item dl-selected"><div class="nav-item-inner nav-order">订单管理</div></li><li class="nav-item dl-selected"><div class="nav-item-inner nav-order">业务管理22</div></li>
+
+        </ul>
+    </div>
+    <ul id="J_NavContent" class="dl-tab-conten">
+
+    </ul>
+</div>
+<!--广告-->
+<!--<div id="pop" style="">-->
+    <!--<div id="popHead">-->
+        <!--<a id="popClose" title="关闭"> X </a>-->
+        <!--<h2></h2>-->
+    <!--</div>-->
+    <!--<div id="popContent">-->
+        <!--<iframe height="252" width="293" frameborder="no" scrolling="no" th:src="@{http://img1.imgtn.bdimg.com/it/u=714360400,2225779809&fm=27&gp=0.jpg}"></iframe>-->
+    <!--</div>-->
+<!--</div>-->
+<script>var popad=new Pop();</script>
+<script>
+
+    BUI.use('common/main',function(){
+        var config = [{
+            id:'1',
+            menu:[{
+                id:'23',
+                text:'客户管理',
+                items:[
+                    {id:'12',text:'潜客',icon: 'icon-glass',href:'/clientList'},
+                    {id:'3',text:'黑名单客户',href:'/clientheiList'},
+                    {id:'4',text:'用户管理',href:'User/index.html'},
+                    {id:'6',text:'菜单管理',href:'Menu/index.html'} ]
+
+            }]
+
+        },
+
+
+
+            {id:'7',homePage : '9',
+                menu:[{
+                    text:'订单管理',
+                    items:[{id:'9',text:'订单列表',href:'/dingdanList'},
+                        {id:'91',text:'打回订单',href:'/dingdadanList'},
+                        {id:'92',text:'已拒订单',href:'/dingjudanList'},
+
+
+                    ]}]},
+
+            {id:'8',homePage : '19',
+                menu:[{
+                    text:'产品中心',
+                    items:[{id:'19',text:'产品管理',href:'toproductList'}]}]},
+
+
+
+        ];
+        new PageUtil.MainPage({
+            modulesConfig : config
+        });
+    });
+</script>
+</body>
+</html>
