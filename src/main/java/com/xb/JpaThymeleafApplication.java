@@ -12,7 +12,7 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 public class JpaThymeleafApplication extends SpringBootServletInitializer {
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        System.out.println("3kkasoood3");
+        System.out.println("3kkoood3");
         return application.sources(JpaThymeleafApplication.class);
 
     }
